@@ -1,0 +1,18 @@
+import groovy.json.JsonSlurper
+
+def slurper = new JsonSlurper();
+def jsonstring = slurper.parseText(payload);
+def user = jsonstring.user.name;
+def created = jsonstring.created_at;
+def location = jsonstring.user.location;
+def timezone = jsonstring.user.time_zone;
+def followers = jsonstring.user.followers_count;
+def favorited = jsonstring.favorite_count;
+def tweettext = jsonstring.text;
+def isretweet = jsonstring.retweeted;
+
+def fText = "";
+
+fText = fText + user + '\t' + created + '\t' + isretweet + '\t' + location + '\t' + timezone + '\t' + followers + '\t' + favorited + '\t' + tweettext + '\r\n';
+
+return fText;
