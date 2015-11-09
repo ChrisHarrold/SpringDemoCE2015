@@ -1,0 +1,10 @@
+Create a startspring.sh and paste these contents into it to match your path to the spring executable:
+
+cd /spring/spring-xd-1.2.1.RELEASE/xd/bin
+./xd-singlenode
+
+
+This one create a startshell.sh and paste this in to start the XD shell - again make sure the path matches where you extracted the spring files:
+
+cd /spring/spring-xd-1.2.1.RELEASE/shell/bin
+./xd-shell

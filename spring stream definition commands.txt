@@ -1,0 +1,21 @@
+Quick diagram of the syntax for a stream:
+
+stream create CHOSE_A_NAME --definition "twittersearch --consumerKey=_____(Insert your hash here) --consumerSecret=_____Insert your other hash here) --query=‘WHAT_AM_I_SEARCHING_FOR’ | transform --script=_____(Your transform script) | file --name=_____(What do you want the output file to be named - the extension is always “.out”) --dir=/isi/twitterclean (where do you want it saved?)“ --deploy (once created start running and collecting data - this can be omitted if you just want to define it but not start it)
+
+The demo scripts are below:
+
+Creates a full output JSON payload for a specific search term - replace the keyword after —-query=‘’ with the keyword of your choice:
+
+stream create twitterdirty --definition "twittersearch --consumerKey=0IQkYAgHdzlxpIcF3a7td852a --consumerSecret=MgUoMwIS01Io9MChfOrRfeqLOJStHdURxVTXvv4hLtH0cR31LD --query='Syria' | file --name=twitterraw.txt --dir=/isi/twitterdirty" --deploy
+
+
+Creates a modified payload of simple text - refer to the transform script for the various values possible in the output text file - replace the script name after —-script=p.p < replace p.p with whatever you name your script file - you also need to change the keyword to be the item you want to search as above:
+
+stream create twitterclean --definition "twittersearch --consumerKey=0IQkYAgHdzlxpIcF3a7td852a --consumerSecret=MgUoMwIS01Io9MChfOrRfeqLOJStHdURxVTXvv4hLtH0cR31LD --query='syria' | transform --script=p.p | file --name=twitterfixed --dir=/isi/twitterclean" --deploy
+
+
+
+The other commands that would be useful for managing the streams are:
+stream ______ undeploy (stops the stream but does not remove it completely - useful if you need to pause ingestion)
+stream ______ deploy (starts a deployed, but not running stream and begins ingestion)
+stream ______ destroy (completely stops and removes a stream outright - use this if you are testing out different stream configurations)
