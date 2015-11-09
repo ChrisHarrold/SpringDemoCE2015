@@ -19,3 +19,7 @@ The other commands that would be useful for managing the streams are:
 stream ______ undeploy (stops the stream but does not remove it completely - useful if you need to pause ingestion)
 stream ______ deploy (starts a deployed, but not running stream and begins ingestion)
 stream ______ destroy (completely stops and removes a stream outright - use this if you are testing out different stream configurations)
+
+Just in case you want it, this is the "full-stream" command as well - you can perform transforms on this as well as a number of other options (track and follow) to narrow down what you get from the stream. This is just another example of the twitter ingest - there are many other types of ingest - refer to the documentation for Spring online for all the possible examples:
+
+stream create firehose --definition "twitterstream --consumerKey=0IQkYAgHdzlxpIcF3a7td852a --consumerSecret=MgUoMwIS01Io9MChfOrRfeqLOJStHdURxVTXvv4hLtH0cR31LD | file --name=firehose --dir=/isi/firehose" --deploy
