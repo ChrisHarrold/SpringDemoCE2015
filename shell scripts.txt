@@ -1,3 +1,5 @@
+I created two shell scripts to shortcut to starting spring and the interactive shell - these are just nice to have if you don't like a lot of typing!
+
 Create a startspring.sh and paste these contents into it to match your path to the spring executable:
 
 cd /spring/spring-xd-1.2.1.RELEASE/xd/bin
